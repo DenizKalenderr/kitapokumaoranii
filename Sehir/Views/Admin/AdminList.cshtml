@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EntityLaye.Concrate.Admin>
+@{
+    ViewBag.Title = "AdminList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>AdminList</h2>
+<br />
+
+
+<link rel="stylesheet" href=" ~/fonts/StyleSheet3.css">
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Admin Ad</th>
+        <th>Admin Rol</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.AdminID</td>
+            <td>@x.UserName </td>
+            <td>@x.AdminRole</td>
+
+
+
+            <td><a href="/Admin/DeleteAdmin/@x.AdminID" class="custom-btn btn-7" style="text-align:center" target="_self">Sil</a></td>
+            <td><a href="/Ekle/UpdateEkle/@x.AdminID" class="custom-btn btn-6" style="text-align:center" target="_self">Güncelle</a></td>
+
+
+
+        </tr>
+    }
+</table>
+<a href="/Admin/AddNew/" class="custom-btn btn-4" style="text-align:center">Yeni Admin Ekle</a>
+
+

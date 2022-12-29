@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EntityLaye.Concrate.Ekle>
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href=" ~/fonts/StyleSheet1.css">
+
+<div class="container">
+    @foreach (var x in Model)
+    {
+        <div class="card">
+            <div class="card__header">
+                <img src="@x.resim" alt="card__image" class="card__image" width="700">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-blue">Plaka Kodu:@x.PlakaKodu</span>
+                <h4>@x.SehirAdı</h4>
+                <p><p>Kadın Okuma Oranı:@x.kadınokuma</p>
+                <p><p>Erkek  Okuma Oranı:@x.erkekokuma</p>
+                <p><p>Ortalama Okuma Oranı:@x.erkekokuma</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image">
+                    <div class="user__info">
+                        <h5>@x.Admin.UserName</h5>
+                        <small>@x.OlusturmaDate</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

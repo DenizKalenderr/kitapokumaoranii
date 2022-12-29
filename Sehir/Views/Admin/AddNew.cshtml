@@ -1,0 +1,24 @@
+﻿@model EntityLaye.Concrate.Admin
+@{
+    ViewBag.Title = "AddNew";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddNew", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Admini Rolu")
+    @Html.TextBoxFor(x => x.AdminRole, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adminin Adı Soyadı")
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("Adminin Şifresi")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+
+    <button class="btn btn-outline-primary">Kaydet</button>
+}
+
+
+

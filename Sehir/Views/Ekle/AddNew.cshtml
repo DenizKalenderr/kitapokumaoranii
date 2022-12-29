@@ -1,0 +1,36 @@
+﻿@model EntityLaye.Concrate.Ekle
+@{
+    ViewBag.Title = "AddNew";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using (Html.BeginForm("AddNew", "Ekle", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Sehir Plaka Kodu")
+    @Html.TextBoxFor(x => x.PlakaKodu, new { @class = "form-control" })
+
+    @Html.Label("Sehir Adı")
+    @Html.TextBoxFor(x => x.SehirAdı, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kadın Okuma Oranı")
+    @Html.TextBoxFor(x => x.kadınokuma, new { @class = "form-control" })
+    <br />
+    @Html.Label("Erkek Okuma Oranı")
+    @Html.TextBoxFor(x => x.erkekokuma, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ortalama  Okuma Oranı")
+    @Html.TextBoxFor(x => x.ortalamaokuma, new { @class = "form-control" })
+    <br />
+    <br />
+    <input type="file" name="resim" />
+    <br />
+
+    @Html.Label("Olusturma Tarihi")
+    @Html.TextBoxFor(x => x.OlusturmaDate, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Veren Kişi")
+    @Html.DropDownListFor(x => x.AdminID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+
+
+    <button class="btn btn-outline-primary">Kaydet</button>
+}

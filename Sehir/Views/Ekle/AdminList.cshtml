@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityLaye.Concrate.Ekle>
+@{
+    ViewBag.Title = "AdminList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link rel="stylesheet" href=" ~/fonts/StyleSheet3.css">
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Şehir Adı</th>
+        <th>AdminID</th>
+        <th>Tarih</th>
+        <th>Kadın Okuma Oranı</th>
+        <th>Erkek Okuma Oranı</th>
+        <th>Ortalama Okuma Oranı</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.SehirID</td>
+    <td>@x.SehirAdı </td>
+    <td>@x.Admin.UserName</td>
+    <td>@x.OlusturmaDate.ToShortDateString()</td>
+    <td>@x.kadınokuma</td>
+    <td>@x.erkekokuma</td>
+    <td>@x.ortalamaokuma</td>
+
+    <td><a href="/Ekle/BlogGit/@x.SehirID" class="custom-btn btn-5" style="text-align:center" target="_blank">Görüntüle</a></td>
+
+    <td><a href="/Ekle/DeleteAdmin/@x.SehirID" class="custom-btn btn-7" style="text-align:center" target="_self">Sil</a></td>
+    <td><a href="/Ekle/UpdateEkle/@x.SehirID" class="custom-btn btn-7" style="text-align:center" target="_self">Güncelle</a></td>
+
+</tr>
+      
+    }
+</table>
+<a href="/Ekle/AddNew/" class="custom-btn btn-4" style="text-align:center">Yeni Şehir Ekle</a>
+
+
